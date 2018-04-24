@@ -1,0 +1,15 @@
+-------------------------------------------------
+**************Spring MS************
+-------------------------------------------------
+GitHub URL:
+https://github.com/in28minutes/spring-microservices
+
+Spring Cloud Config Server, Netflix Eureka, Netflix Zuul, Zipkin
+---------------------------------------------------------
+
+Spring Cloud Config Server:
+-Centralized place for all the configuration for different micro services at different level like Dev, QA, Prod and so on...
+
+-Atleast use Boot 2.0.0M3[not snapshot]
+-give the appropriate artifact id.
+-add Devtools, Web, Actuator, Config Client dependencies while creating service.
