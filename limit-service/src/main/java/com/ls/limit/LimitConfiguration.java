@@ -1,5 +1,10 @@
 package com.ls.limit;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+@Component
+@ConfigurationProperties("limit-service")
 public class LimitConfiguration {
 
 	private int minimum;
