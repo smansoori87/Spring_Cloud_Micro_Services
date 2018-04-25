@@ -1,17 +1,20 @@
 package com.ls.limit;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
-//@Component
-//@ConfigurationProperties("limit-service")
+@Component
+@RefreshScope
 public class LimitConfiguration {
 
+	@Value("${limit-service.minimum}")
 	private int minimum;
+	
+	@Value("${limit-service.maximum}")
 	private int maximum;
 
 	protected LimitConfiguration() {
-
 	}
 
 	public LimitConfiguration(int minimum, int maximum) {

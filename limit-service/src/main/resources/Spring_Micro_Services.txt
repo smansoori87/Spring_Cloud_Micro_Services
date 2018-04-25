@@ -29,5 +29,12 @@ public class LimitConfiguration {
 spring.application.name=limit-service
 limit-service.minimum=99
 limit-service.maximum=9999
+--------------------------------------------
+
+How to connect with Git Config Repository.
+-Create Repository in Git.
+-Add respective configuration properties files.[property file must to have the same name as project name, so it will be easy to distinguish between different projects.]
+-
+
 
 
