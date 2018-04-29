@@ -1,6 +1,10 @@
 -------------------------------------------------
 **************Spring MS************
 -------------------------------------------------
+
+//Rest Service Basi URI standards.
+https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/
+
 GitHub URL:
 https://github.com/in28minutes/spring-microservices
 
@@ -29,6 +33,9 @@ public class LimitConfiguration {
 spring.application.name=limit-service
 limit-service.minimum=99
 limit-service.maximum=9999
+
+Other way to read is:
+@Rest
 --------------------------------------------
 
 How to connect with Git Config Repository.
