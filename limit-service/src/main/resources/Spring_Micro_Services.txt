@@ -17,11 +17,50 @@ Spring Cloud Config Server:
 -give the appropriate artifact id.
 -add Devtools, Config Server dependencies while creating service.
 
+----------------------------------------------------------------------------------
+-Use below annotation to define the application as Spring-Cloud-Config-Server
+@EnableConfigServer
+@SpringBootApplication
+public class SpringCloudConfigServerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringCloudConfigServerApplication.class, args);
+	}
+}
+
+-MMake below changes in applicaiton.properties file
+spring.application.name=spring-cloud-config-server
+server.port=8888
+
+-Add belwo changes in bootstrap.properties file.
+spring.cloud.config.server.bootstrap=true
+spring.cloud.config.server.git.clone-on-start=true
+#below change is to read files from git server direct using url 
+#spring.cloud.config.server.git.uri=https://github.com/suhailmansoori87/Git_Micro_Service_Config_Repo.git
+#below changes to read it from local git.
+spring.cloud.config.server.git.uri=file://${user.home}/git/Git_Micro_Service_Config_Repo
+
+-use [applicationName].[filename].propertyName in respective properties file
+Ex:
+Created currency-exchange-service.properties file:
+currency-exchange-service.currency-exchange-model.conversionMultiple=89
+----------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------
+How to read data from Config server to client:
+--Add below minimal dependencies to create a microservice that will read data from config-server.
+-Devtools, Web, actuator, Config-client
+
 @ConfigurationProperties("")
-- Annotation useful to read data from application.properties files.
+- Annotation useful to read data from application.properties/config server respective to profiles.
+
+application.properties
+//add below property at client side in application.properties to read the respective config file form config server like DEV/QA/PROD 
+spring.profiles.active=dev
+
 Ex: 
 @Component
-@ConfigurationProperties("limit-service")
+@ConfigurationProperties(prefix="limit-service")
 public class LimitConfiguration {
 
 	private int minimum;
@@ -35,8 +74,16 @@ limit-service.minimum=99
 limit-service.maximum=9999
 
 Other way to read is:
-@Rest
---------------------------------------------
+@RefreshScope
+
+Use full property name in place holder to read from config server.
+@Component
+@RefreshScope
+public class LimitConfiguration {
+
+	@Value("${limit-service.minimum}")
+	private int minimum;
+----------------------------------------------------------------------------------------
 
 How to connect with Git Config Repository.
 -Create Repository in Git and sync add the same in Eclipse.
@@ -44,7 +91,13 @@ How to connect with Git Config Repository.
 -Add respective configuration properties files in the newly added folder in build path.[property file must to have the same name as project name, so it will be easy to distinguish between different projects.]
 -To define the files at DEV/QA/UAT/STAGE/PROD use the [filename]-dev/qa/uat/stag/prod.
  Ex: limit-service-qa.properties
--
+-Use below property in client application.properties file to read the respective profile data.
+-spring.profiles.active=dev
+
+----------------------------------------------------------------------------------------
+
+
+
  
 
 

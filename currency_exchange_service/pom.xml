@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.microservices</groupId>
-	<artifactId>currency_exchange_service</artifactId>
+	<artifactId>currency-exchange-service</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>currency_exchange_service</name>
+	<name>currency-exchange-service</name>
 	<description>Currency Exchange Service</description>
 
 	<parent>
@@ -53,11 +53,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-configuration-processor</artifactId> -->
+<!-- 			<optional>true</optional> -->
+<!-- 		</dependency> -->
 	</dependencies>
 
 	<dependencyManagement>

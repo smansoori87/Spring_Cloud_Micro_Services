@@ -4,29 +4,37 @@ import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties("currency-exchange-service")
+@ConfigurationProperties(prefix = "currency-exchange-service.currency-exchange-model")
 public class CurrencyExchangeModel {
 
 	private Long id;
 	private String from;
 	private String to;
-	
-	
-	@Value("${conversionMultiple}")
 	private BigDecimal conversionMultiple;
+	private int port;
 
 	public CurrencyExchangeModel() {
 	}
 
-	public CurrencyExchangeModel(Long id, String from, String to, BigDecimal conversionMultiple) {
+	public CurrencyExchangeModel(Long id, String from, String to, BigDecimal conversionMultiple, int port) {
 		super();
 		this.id = id;
 		this.from = from;
 		this.to = to;
 		this.conversionMultiple = conversionMultiple;
+		this.port = port;
+	}
+
+	public int getPort() {
+		return port;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
 	}
 
 	public Long getId() {
@@ -63,7 +71,7 @@ public class CurrencyExchangeModel {
 
 	@Override
 	public String toString() {
-		return "CurrencyExchangeModel [from=" + from + ", to=" + to + ", conversionMultiple=" + conversionMultiple
-				+ "]";
+		return "CurrencyExchangeModel [id=" + id + ", from=" + from + ", to=" + to + ", conversionMultiple="
+				+ conversionMultiple + ", port=" + port + "]";
 	}
 }
