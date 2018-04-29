@@ -2,14 +2,14 @@ package com.ce.controller;
 
 import java.math.BigDecimal;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
+import com.ce.data.Exchange;
+
 @Component
-@ConfigurationProperties(prefix = "currency-exchange-service.currency-exchange-model")
-public class ExchangeModel {
+@ConfigurationProperties(prefix = "currency-exchange-rate-service.exchange-model")
+public class ExchangeModel implements Exchange {
 
 	private Long id;
 	private String from;

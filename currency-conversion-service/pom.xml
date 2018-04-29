@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.microservices</groupId>
-	<artifactId>currency-exchange-rate-service</artifactId>
+	<artifactId>currency-conversion-service</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>currency-exchange-rate-service</name>
-	<description>Currency Exchange Rate Service</description>
+	<name>currency-conversion-service</name>
+	<description>Currency Conversion Service</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -32,14 +32,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
@@ -57,11 +49,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.boot</groupId> -->
-<!-- 			<artifactId>spring-boot-configuration-processor</artifactId> -->
-<!-- 			<optional>true</optional> -->
-<!-- 		</dependency> -->
 	</dependencies>
 
 	<dependencyManagement>

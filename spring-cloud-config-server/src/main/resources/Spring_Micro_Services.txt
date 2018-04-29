@@ -58,6 +58,13 @@ application.properties
 //add below property at client side in application.properties to read the respective config file form config server like DEV/QA/PROD 
 spring.profiles.active=dev
 
+bootstrap.propertrties
+>Its must to have the same name of application and files in config server.
+[name in bootstrap.properties]spring.application.name=currency-exchange-rate-service
+Files in git repo[config server]
+//currency-exchange-rate-service-qa.properties
+//currency-exchange-rate-service.properties
+
 Ex: 
 @Component
 @ConfigurationProperties(prefix="limit-service")
