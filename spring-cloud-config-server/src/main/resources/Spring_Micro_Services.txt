@@ -118,6 +118,15 @@ Where Spring Data Exposed 4 different interfaces to connect with underline JPA l
 >Moreover Spring JPA simplify this hireachy and came up with only 2 interface.
 [JPARespository, JpaSpecificationExecutor]
 
+::::::::::::H2 Changes:::::::::::::::
+>If using H2 as dB instance, once app up and running to check the DB use below properties changes in application.properties
+	-spring.jpa.show-sql=true
+	-spring.h2.console.enabled=true
+
+Use below change in h2-console
+Ex URL:http://localhost:8000/h2-console
+Change JDBC URL to :>jdbc:h2:mem:testdb
+
 >
 @Entity:
 To define a class as Entity[table in DB]
