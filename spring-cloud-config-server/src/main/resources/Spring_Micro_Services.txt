@@ -96,6 +96,10 @@ How to connect with Git Config Repository.
 
 ----------------------------------------------------------------------------------------
 
+SPring JPA:
+https://www.petrikainulainen.net/programming/spring-framework/spring-data-jpa-tutorial-introduction/
+
+----------------------------------------------------------------------------------------
 
 
  
