@@ -96,8 +96,53 @@ How to connect with Git Config Repository.
 
 ----------------------------------------------------------------------------------------
 
-SPring JPA:
+Spring JPA:
+[imp] https://dzone.com/articles/introduction-to-jpa-using-spring-boot-data-jpa
 https://www.petrikainulainen.net/programming/spring-framework/spring-data-jpa-tutorial-introduction/
+
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+
+Internally it will take care of Hibernet-Core, Hikari CP, SpringJdbc, Spring Tx, Spring JPA and others.
+
+>Spring JPA is part of Spring Data project and built on top of Spring Data Common. 
+Where Spring Data Exposed 4 different interfaces to connect with underline JPA like Hibernet and all.
+
+>Spring JPA-->Spring Data Common-->JPA Providers[Like Hibernet, Ibaties and all]-->JPA[Java Persistence API]-->DB
+
+>Spriing Data Common exposed 4 different interfaces.
+[PagingAndSortingRepository-->CRUD Repository-->Repository][QuerydslPredicateExecutor]
+
+>Moreover Spring JPA simplify this hireachy and came up with only 2 interface.
+[JPARespository, JpaSpecificationExecutor]
+
+>
+@Entity:
+To define a class as Entity[table in DB]
+Note: if Class Name is in initial upper case, JPA will create table with _ saprate.
+EX: If Class name is ExchangeRate[class name]-->exchange_rate[in DB]
+
+>@Id
+To Define the primary key column
+
+>@Column:
+If there is need to create the coulumn in DB with diff name.
+@Column(name="currency_from")
+
+>To start with JPA:
+Create an interface extend jpaRepository<Entity, Id>
+Ex:
+public interface ExchangeRateRepository extends JpaRepository<ExchangeRate, Long>{
+	ExchangeRate findByFromAndTo(String from, String to);
+}
+
+>findByFromAndTo:
+findBy is an standard prefix from JPA where we can add the conditions based on column. as in above example finding ExchangeRate based on from and to column.
+
+>
+
 
 ----------------------------------------------------------------------------------------
 

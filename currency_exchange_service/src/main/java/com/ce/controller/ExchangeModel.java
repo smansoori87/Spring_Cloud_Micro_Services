@@ -1,4 +1,4 @@
-package com.ce.service;
+package com.ce.controller;
 
 import java.math.BigDecimal;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties(prefix = "currency-exchange-service.currency-exchange-model")
-public class CurrencyExchangeModel {
+public class ExchangeModel {
 
 	private Long id;
 	private String from;
@@ -17,10 +17,10 @@ public class CurrencyExchangeModel {
 	private BigDecimal conversionMultiple;
 	private int port;
 
-	public CurrencyExchangeModel() {
+	public ExchangeModel() {
 	}
 
-	public CurrencyExchangeModel(Long id, String from, String to, BigDecimal conversionMultiple, int port) {
+	public ExchangeModel(Long id, String from, String to, BigDecimal conversionMultiple, int port) {
 		super();
 		this.id = id;
 		this.from = from;
