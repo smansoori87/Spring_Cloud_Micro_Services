@@ -190,7 +190,17 @@ public class CurrencyConversionController {
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
 Spring Feign:
+-Its helps and simplify the process to invoke the server to server rest communication.
+-Also its provide the important component called Rebbin that is client side load balancer.
 
+-Add below dependency in pom.xml
+
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
+
+>
 
  
 
