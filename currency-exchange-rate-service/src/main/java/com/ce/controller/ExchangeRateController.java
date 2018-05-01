@@ -11,10 +11,11 @@ import com.ce.data.ExchangeRate;
 import com.ce.data.ExchangeRateRepository;
 
 @RestController
-public class ExchangeController {
+public class ExchangeRateController {
 
 	@Autowired
-	ExchangeModel cem;
+	ExchangeRateModel cem;
+	
 	@Autowired
 	Environment env;
 

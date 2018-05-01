@@ -9,7 +9,7 @@ import com.ce.data.Exchange;
 
 @Component
 @ConfigurationProperties(prefix = "currency-exchange-rate-service.exchange-model")
-public class ExchangeModel implements Exchange {
+public class ExchangeRateModel implements Exchange {
 
 	private Long id;
 	private String from;
@@ -17,10 +17,10 @@ public class ExchangeModel implements Exchange {
 	private BigDecimal conversionMultiple;
 	private int port;
 
-	public ExchangeModel() {
+	public ExchangeRateModel() {
 	}
 
-	public ExchangeModel(Long id, String from, String to, BigDecimal conversionMultiple, int port) {
+	public ExchangeRateModel(Long id, String from, String to, BigDecimal conversionMultiple, int port) {
 		super();
 		this.id = id;
 		this.from = from;

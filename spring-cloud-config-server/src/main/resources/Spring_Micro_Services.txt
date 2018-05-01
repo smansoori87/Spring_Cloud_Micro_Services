@@ -200,9 +200,34 @@ Spring Feign:
 	<artifactId>spring-cloud-starter-openfeign</artifactId>
 </dependency>
 
+> Use below annotation to mark your application to read the feign class paths.
+@SpringBootApplication
+@EnableFeignClients("com.cs.feign")
+public class CurrencyConversionServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CurrencyConversionServiceApplication.class, args);
+	}
+}
+
+>To read other microservice data use below annotations.
+@FeignClient(name = "currency-exchange-rate-service", url = "localhost:8000")
+public interface ExchangeRateControllerProxy {
+
+	@GetMapping("/exchange-rate/api/v1/from/{from}/to/{to}")
+	public CurrencyConverterBean currencyExchange(@PathVariable String from, @PathVariable String to);
+}
+
+>How to use the same.
+@GetMapping("/currency-conversion-feign/api/v1/from/{from}/to/{to}/quantity/{quantity}")
+public CurrencyConverterBean currencyConverterFeign(@PathVariable String from, @PathVariable String to, @PathVariable BigDecimal quantity) {
+
+	CurrencyConverterBean ccb =ercp.currencyExchange(from, to);
+	
+	return new CurrencyConverterBean(ccb.getId(), from, to, ccb.getConversionMultiple(), quantity, ccb.getConversionMultiple().multiply(quantity),
+			Integer.valueOf(env.getProperty("local.server.port")));
+}
+
 >
-
- 
-
 
 
