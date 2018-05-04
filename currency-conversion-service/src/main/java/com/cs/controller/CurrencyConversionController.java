@@ -45,6 +45,6 @@ public class CurrencyConversionController {
 		CurrencyConverterBean ccb =ercp.currencyExchange(from, to);
 		
 		return new CurrencyConverterBean(ccb.getId(), from, to, ccb.getConversionMultiple(), quantity, ccb.getConversionMultiple().multiply(quantity),
-				Integer.valueOf(env.getProperty("local.server.port")));
+				ccb.getPort());
 	}
 }
