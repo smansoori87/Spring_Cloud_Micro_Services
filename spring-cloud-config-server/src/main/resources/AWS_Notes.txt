@@ -1,0 +1,50 @@
+1. Compute Services:
+----------------------------
+>EC2
+>EC2 Container
+>Lambda
+>Batch
+>Light Sail
+>Beanstalk
+
+2. Storage:
+----------------------------
+>S3
+>EFS(Elastic File System)
+>Glacier
+>Snowball
+>Storage Gateway
+
+3. DataBase:
+----------------------------
+>RDS(Relational Data Service)
+>Dynamo DB(Non relational Database)
+>Elastic Cache(caching from DB)
+>Red Shift(Complex queries on data ware housing)
+
+4. Migration:
+---------------------------
+>AMH(AWS Migration Hub)
+>Application Discovery Service
+>Database Migration
+>Server Migration
+>Snaowball
+
+5. Network & Content Delivery
+----------------------------
+>VPC(Amazon Virtual Private Cloud)
+>Cloud Front(Content Delivery NW)
+>Route53(Amazon DNS Server)
+>API Gateway
+>Direct Connect(dedicated line to connect with inpremises DS to AWS DS)
+
+6. Developer Tools
+-----------------------------
+>Code Star
+>Code Deploy
+>Code Commit
+>Code Pipline
+>Code Build
+>X-Ray
+>Cloud 9
+
