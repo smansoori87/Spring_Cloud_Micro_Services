@@ -48,3 +48,33 @@
 >X-Ray
 >Cloud 9
 
+7. Management Tool:
+-----------------------------
+>Cloud Watch(Monitoring Service)
+>Cloud Formation(Code to infrastructure)
+>CloudTrail(Logg the changes in AWS Env)
+>AWS Config(Backup and Rollback like 3 days back status of AWS Env)
+>Ops Works(Automate the configuration of ENV)
+>Service Catalog()
+>Systems Manager(like want to rollout the patch for all the EC2 instances policies and all)
+>Trusted Advisor(Advice to related to security and the loop whole in nw or we can improve in Env)
+>Managed Service()
+
+8. Media Services:
+-----------------------------
+>Elastic Transcoder(Convert the media specific to opener)
+
+9. Machine Learning:
+-----------------------------
+>SagaMaker
+>Comprehend
+>Polly
+>Lex
+>
+
+10.Sa
+>
+
+
+
+
