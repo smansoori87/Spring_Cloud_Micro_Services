@@ -1,4 +1,4 @@
-1. Compute Services:
+1. Compute Services:(SA Associate)
 ----------------------------
 >EC2
 >EC2 Container
@@ -7,7 +7,7 @@
 >Light Sail
 >Beanstalk
 
-2. Storage:
+2. Storage:(SA Associate)
 ----------------------------
 >S3
 >EFS(Elastic File System)
@@ -15,14 +15,14 @@
 >Snowball
 >Storage Gateway
 
-3. DataBase:
+3. DataBase:(SA Associate)
 ----------------------------
 >RDS(Relational Data Service)
 >Dynamo DB(Non relational Database)
 >Elastic Cache(caching from DB)
 >Red Shift(Complex queries on data ware housing)
 
-4. Migration:
+4. Migration:(SA Associate)
 ---------------------------
 >AMH(AWS Migration Hub)
 >Application Discovery Service
@@ -30,7 +30,7 @@
 >Server Migration
 >Snaowball
 
-5. Network & Content Delivery
+5. Network & Content Delivery(SA Associate)
 ----------------------------
 >VPC(Amazon Virtual Private Cloud)
 >Cloud Front(Content Delivery NW)
@@ -48,7 +48,7 @@
 >X-Ray
 >Cloud 9
 
-7. Management Tool:
+7. Management Tool:(SA Associate)
 -----------------------------
 >Cloud Watch(Monitoring Service)
 >Cloud Formation(Code to infrastructure)
@@ -70,10 +70,93 @@
 >Comprehend
 >Polly
 >Lex
+>Rekognition
+>Amazon Translate
+
+10.Analytics(SA Associate)
+-----------------------------
+>Athena
+>EMR(Elastic Map Reduce)(IMP)
+>Cloud Search
+>Elastic Search
+>Kinesis(Imp)[Streaming large amount of data into AWS]
+>Kinesis Video Streams
+>Quick Sight(Bussiness Intelegence)
+>Data Pipline(data between multiple AWS services.)(IMP)
+>Glue(Unformated data handling)
+
+11. Security(SA Associate)
+-----------------------------
+> IAM(Idendtity Access Management)
+>Congnito(Device Authentication, by gmail or FB or other services)
+>Guard Duty(Monitoring the mesclenious activity)
+>Inspector(Monitor the security vurnability)
+>Macie(Secure data)
+>Certification Manager(SSL and all )
+>CloudHSM(Hardware Security Module, to hold the public and private keys.)
+>Directory Service
+>WAF
+>Shield
+>Artifact
+
+12.Mobile Services
+-----------------------------
+>Mobile Hub
+>Pinpoint
+>AWS AppSync
+>Device Farm(Testing Plateform)
+>Mobile Analytics
+
+13. AR/VR
+>Sumerian
+
+14. Application Integration(SA Associate)
+-----------------------------
+>StepFunction
+>SNS(Notification Service)
+>SQS(Queue Service)
+>SWF(Work Flow)
+>Amazon MQ
+
+15. Customer Engagement
+-----------------------------
+>Connect(Contact center over cloud)
+>SES(email Service)
+
+16.Bussiness Productivity
+-----------------------------
+>Alexa
+>Chime(Video Confrencing)
+>Work Docs
+>Work Mail
+
+17. Desktop & App Streaming(SA Associate)
+-----------------------------
+>Workspaces
+>AppStream 2.0
+
+18. IOT
+-----------------------------
+>iOT
+>iOT Device MAnagement
+>Amazon FreeRTOS
+>Greengrass
+
+19. Game
+-----------------------------
+>GameLift
+
+*********************************************************************
+
+IAM: Identity Access Management
+--------------------------------
+>Its Global Service and can be apply to the people globaly. Not specific to any region.
+>It Contains[User, Groups, Role, Policy]
 >
 
-10.Sa
->
+
+
+
 
 
 
