@@ -151,8 +151,64 @@
 IAM: Identity Access Management
 --------------------------------
 >Its Global Service and can be apply to the people globaly. Not specific to any region.
+>Power User can access all services from AWS. Except managing the groups and users with in IAM.
 >It Contains[User, Groups, Role, Policy]
+>Password Policy at IAM level. Ex: 12 Char, one Lowercase, one uppercase like wise...
+
+[User]
+>AccessKeyId+Secret Access Key will be used to connect AWS account programmatically.[If lost have to regenerate the new one.]
+>Password is used for to login from console.
+>Can deactivate the keys and can regenerate the keys.
+
+[Group]
+>Group of users.[]
+
+[Policy]
+Can be link to group or user.
+Ex: ReadOnlyaccessGlacier
+
+[Role]
+Basically for giving the permission to AWS Entities like EC2 S3 and all over other AWS entities...
+
+--------------------------------
+Billing Alarm
+--------------------------------
+Related to trigger email to user in case account will reached to defined threshold of amount limit.
+
+--------------------------------
+Cloud Watch
+--------------------------------
+Monitoring Service. Also can monitor AWS account charges.
+
+*********************************************************************
+
+S3-Bucket
+--------------------------------
+>Object Based files.
+>Files can be from 0 Bytes to 5TB
+>Unlimited Storage
+>Bucket name should be unique globally.
+>Bucket will be created at Region level.
+>sample bucket URL[https://s3-eu-west-1.amazonaws.com/sambucket]
+>HTTP 200 code will be returned on successfull upload in bucket.
+>Read after write[imideate can be accessed in case of new file write]
+>Puts and Delete can give some fractional difference between new vs old files.
+>Key-value, metadata, version id, Access Control List info linked to S3 object.
+>S3 gives 99.99% Availability and 99.999999999[11*9s] Durability of data.
+
+--------------------------------
+Storage Tiers/Classes
+--------------------------------
+>S3 Standard[99.99% Availability, 11*9s Durability]
+>S3-IA(Infrequently Accessed)[When needed less frequently but in rapid, Charge for retrival]
+>S3- IA- ONE AZ[Less then IA cost.]
+
+--------------------------------
+Glacier
+--------------------------------
+>Very Cheap, but standard retrieval time is 3-5 Hr. and bulk in 5 - 12 Hr.
 >
+
 
 
 
