@@ -195,6 +195,8 @@ S3-Bucket
 >Puts and Delete can give some fractional difference between new vs old files.
 >Key-value, metadata, version id, Access Control List info linked to S3 object.
 >S3 gives 99.99% Availability and 99.999999999[11*9s] Durability of data.
+>By Default Bucket and its internal objects are private scope
+>There can be Bucket Level or object level read write access can be granted.
 
 --------------------------------
 Storage Tiers/Classes
@@ -207,6 +209,12 @@ Storage Tiers/Classes
 Glacier
 --------------------------------
 >Very Cheap, but standard retrieval time is 3-5 Hr. and bulk in 5 - 12 Hr.
+
+--------------------------------
+S3-Versioning
+--------------------------------
+>Bucket versioning cant be disabled, It can be only suspended[it will hold all the created version and will not create any more new version]
+>We can add MFA to reset the versioning or to delete version label permananetly[additional security].
 >
 
 
