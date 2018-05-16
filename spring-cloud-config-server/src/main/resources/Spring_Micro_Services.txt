@@ -191,7 +191,7 @@ public class CurrencyConversionController {
 ----------------------------------------------------------------------------------------
 Spring Feign:
 -Its helps and simplify the process to invoke the server to server rest communication.
--Also its provide the important component called Rebbin that is client side load balancer.
+-Also its provide the important component called Ribbon that is client side load balancer.
 
 -Add below dependency in pom.xml
 
@@ -228,6 +228,88 @@ public CurrencyConverterBean currencyConverterFeign(@PathVariable String from, @
 			Integer.valueOf(env.getProperty("local.server.port")));
 }
 
->
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+Spring Ribbon:
+
+As Feign made developer life easier by providing the proxy interface for MS to MS communication, Still there is issue as it cant hadle multiple
+instances of same microservice. and the same will become the bottleneck for scalability.
+To Overcome the same problem Ribbon have client side load balancing concept and there we can configure multiple instances
+of same microservice in property file.
+
+Dependency needs to be added in pom.xml
+
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+</dependency>
+
+Create Proxy class as below:
+----------------
+@FeignClient(name = "currency-exchange-rate-service")
+@RibbonClient(name="currency-exchange-rate-service")
+public interface ExchangeRateControllerProxy {
+
+	@GetMapping("/exchange-rate/api/v1/from/{from}/to/{to}")
+	public CurrencyConverterBean curr
+	encyExchange(@PathVariable("from") String from, @PathVariable("to") String to);
+}
+
+Make the below changes in bootstrap.properties file
+-----------------
+currency-exchange-rate-service.ribbon.listOfServers=localhost:8000,localhost:8001
+[service-name].ribbon.listOfServers=[list of servers]
+
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+Eureka Naming Server:
+
+As Ribbon providing client side load balancing but still you would not have control to add or remove the instances of services 
+flexibly or without touching the code base. 
+Eureka provide flexiblity to hande this situation. Any MS can register it self with Eureka and the other MS can look into naming server to get the
+instance of MS using Eureka client.
+
+Add Below dependency into pom.xml
+*******************
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+</dependency>
+
+Add below annotation to enable Eureka server n your main class.
+*******************
+@SpringBootApplication
+@EnableEurekaServer
+public class NetflixEurekaNamingServerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(NetflixEurekaNamingServerApplication.class, args);
+	}
+}
+
+Add below configuration into properties file to test the server first time.
+*******************
+spring.application.name=netfix-eureka-naming-server
+server.port=8761
+
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+
+Add Below dependency into client to register itself with eureka.
+*******************
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
+
+Add below configuraiton in application.property file.
+*******************
+eureka.client.service-url.default-zone=http://localhost:8761/eureka
+
+To talk to other services just use Ribbon and Feign with service name and it will work like pro... :)
+Also comment the "currency-exchange-rate-service.ribbon.listOfServers" if there is any in applicaiton.properties.
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+
 
 
