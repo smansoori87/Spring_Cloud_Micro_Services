@@ -36,7 +36,7 @@ public class CurrencyConversionController {
 		System.out.println(">>>>>>>>>>>" + ccb);
 
 		return new CurrencyConverterBean(ccb.getId(), from, to, ccb.getConversionMultiple(), quantity, ccb.getConversionMultiple().multiply(quantity),
-				Integer.valueOf(env.getProperty("local.server.port")));
+				ccb.getPort());
 	}
 	
 	@GetMapping("/currency-conversion-feign/api/v1/from/{from}/to/{to}/quantity/{quantity}")
