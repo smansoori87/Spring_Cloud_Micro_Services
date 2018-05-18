@@ -206,15 +206,38 @@ Storage Tiers/Classes
 >S3- IA- ONE AZ[Less then IA cost.]
 
 --------------------------------
-Glacier
---------------------------------
->Very Cheap, but standard retrieval time is 3-5 Hr. and bulk in 5 - 12 Hr.
-
---------------------------------
 S3-Versioning
 --------------------------------
 >Bucket versioning cant be disabled, It can be only suspended[it will hold all the created version and will not create any more new version]
 >We can add MFA to reset the versioning or to delete version label permananetly[additional security].
+
+--------------------------------
+Glacier
+--------------------------------
+>Very Cheap/low cost, but standard retrieval time is 3-5 Hr. and bulk in 5 - 12 Hr.
+>Store dat ain Archive form. Its immutable and cant be edit once created.
+>Archives hold system generated(amazon) ids only.
+
+>Bydefaualt its encrypted.
+>Max Obj size =40TB, and like wise can be unlimited archives.
+>99.999999999 durability.
+
+--------------------------------
+Vault Locks
+--------------------------------
+>Policy to lock the archives. can define like WORM(write once and read many).
+>Once policy lock can't be changed.
+>upto 1000 vaults can be created and each can hold unlimeted data.
+
+--------------------------------
+Data Retrival
+--------------------------------
+>Upto 5% of your data can be retrive free/month.
+>Policy can be linked to retrival aswell.
+
+--------------------------------
+Vault Locks
+--------------------------------
 >
 
 
