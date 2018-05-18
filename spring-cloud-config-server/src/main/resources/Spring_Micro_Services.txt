@@ -343,17 +343,18 @@ spring.cloud.config.discovery.enabled=true
 ---------------------------------------------------------------------------------------------------------------------
 ----------------------API GateWay------------------------------------------------------------------
 
-Front Controller to MS arc. All the calls and request will go through the same gateway.
+>Front Controller to MS arc. All the calls and request will go through the same gateway.
+>Enable the Nameserver configuration as client.
 
-Enable the Nameserver configuration as client.
-
-Add below dependency into pom.xml to start with ZUUL.
+>Add below dependency into pom.xml to start with ZUUL.
+*******************
 <dependency>
 	<groupId>org.springframework.cloud</groupId>
 	<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
 </dependency>
 
-Add below annotation enable Zuul.
+>Add below annotation enable Zuul.
+*******************
 @EnableZuulProxy
 @EnableDiscoveryClient
 @SpringBootApplication
@@ -364,8 +365,8 @@ public class NetflixZuulApiGatewayServerApplication {
 	}
 }
 
-Create Logging Filter
-**********
+>Create Logging Filter
+*******************
 @Component
 public class ZuulLoggingFilter extends ZuulFilter {
 
@@ -398,7 +399,8 @@ public class ZuulLoggingFilter extends ZuulFilter {
 	}
 }
 
-It's must to use the URIs in below format to work with Zuul API GATEWAY.
+>It's must to use the URIs in below format to work with Zuul API GATEWAY.
+*******************
 /[application-name]/URI
 original : /exchange-rate/api/v1/from/{from}/to/{to}
 with API:/currency-exchange-rate-service/exchange-rate/api/v1/from/{from}/to/{to}
@@ -416,9 +418,30 @@ public interface ExchangeRateControllerProxy {
 	public CurrencyConverterBean currencyExchange(@PathVariable("from") String from, @PathVariable("to") String to);
 }
 
+>The Final URI that will be used to outer world is like below.
+*******************
+http://localhost:8765/currency-conversion-service/currency-conversion-feign/api/v1/from/USD/to/INR/quantity/22
 
+---------------------------------------------------------------------------------------------------------------------
+----------------------Spring Cloud Sleuth------------------------------------------------------------------
 
+>In MS as there will ne n number of components which are intracting to each other its very had to manage the request flow.
+>Spring Sleuth use to provide the mechanism to manage the centeralize tracing id in flow of request. so it can be easly track.
 
+>Add Below dependency in pom.xml
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-sleuth</artifactId>
+</dependency>
+
+>Add below code to enable the id generation.
+//To link centralized tracing id.
+@Bean
+public Sampler defaultSampler() {
+	return Sampler.ALWAYS_SAMPLE;
+}
+
+>Add the appropriate log in individual modules.
 
 
  
