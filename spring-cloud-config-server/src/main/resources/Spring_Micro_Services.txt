@@ -344,3 +344,81 @@ spring.cloud.config.discovery.enabled=true
 ----------------------API GateWay------------------------------------------------------------------
 
 Front Controller to MS arc. All the calls and request will go through the same gateway.
+
+Enable the Nameserver configuration as client.
+
+Add below dependency into pom.xml to start with ZUUL.
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+</dependency>
+
+Add below annotation enable Zuul.
+@EnableZuulProxy
+@EnableDiscoveryClient
+@SpringBootApplication
+public class NetflixZuulApiGatewayServerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(NetflixZuulApiGatewayServerApplication.class, args);
+	}
+}
+
+Create Logging Filter
+**********
+@Component
+public class ZuulLoggingFilter extends ZuulFilter {
+
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	@Override
+	//to enable or disable the filter
+	public boolean shouldFilter() {
+		return true;
+	}
+
+	@Override
+	//business logic at the time of filter
+	public Object run() throws ZuulException {
+		HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
+		logger.info("request->{} request uri->{}", request, request.getRequestURI());
+		return null;
+	}
+
+	@Override
+	//To execute pre post or error condition
+	public String filterType() {
+		return "pre";
+	}
+
+	@Override
+	//priority and sequence of filter
+	public int filterOrder() {
+		return 1;
+	}
+}
+
+It's must to use the URIs in below format to work with Zuul API GATEWAY.
+/[application-name]/URI
+original : /exchange-rate/api/v1/from/{from}/to/{to}
+with API:/currency-exchange-rate-service/exchange-rate/api/v1/from/{from}/to/{to}
+
+//@FeignClient(name = "currency-exchange-rate-service", url = "localhost:8000")
+//@FeignClient(name = "currency-exchange-rate-service")
+
+@FeignClient(name = "netflix-zuul-api-gateway-server")
+@RibbonClient(name="currency-exchange-rate-service")
+public interface ExchangeRateControllerProxy {
+
+	//As using Api gateway, any uri has to append with its application name.
+	//@GetMapping("/exchange-rate/api/v1/from/{from}/to/{to}")
+	@GetMapping("/currency-exchange-rate-service/exchange-rate/api/v1/from/{from}/to/{to}")	
+	public CurrencyConverterBean currencyExchange(@PathVariable("from") String from, @PathVariable("to") String to);
+}
+
+
+
+
+
+
+ 
