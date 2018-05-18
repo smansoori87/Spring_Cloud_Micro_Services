@@ -300,17 +300,30 @@ Add below configuration into properties file to test the server first time.
 spring.application.name=netfix-eureka-naming-server
 server.port=8761
 
+Below properties to register eureka itself with nameself.
+**********
 eureka.client.register-with-eureka=false
 eureka.client.fetch-registry=false
 
-Add Below dependency into client to register itself with eureka.
+Add Below dependency into client to register it with eureka.[Eureka Discovery]
 *******************
 <dependency>
 	<groupId>org.springframework.cloud</groupId>
 	<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 </dependency>
 
-Add below configuraiton in application.property file.
+Add "@EnableDiscoveryClient" to enable the nameserver discovery.
+********************************
+@SpringBootApplication
+@EnableDiscoveryClient
+public class CurrencyConversionServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CurrencyConversionServiceApplication.class, args);
+	}
+}
+
+Add below configuration in application.property file.
 *******************
 eureka.client.service-url.default-zone=http://localhost:8761/eureka
 
@@ -327,4 +340,7 @@ How to link Config Server with Name Server and connect with client.
 
 spring.cloud.config.discovery.enabled=true
 
+---------------------------------------------------------------------------------------------------------------------
+----------------------API GateWay------------------------------------------------------------------
 
+Front Controller to MS arc. All the calls and request will go through the same gateway.
