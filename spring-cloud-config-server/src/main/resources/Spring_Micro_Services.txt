@@ -426,15 +426,17 @@ http://localhost:8765/currency-conversion-service/currency-conversion-feign/api/
 ----------------------Spring Cloud Sleuth------------------------------------------------------------------
 
 >In MS as there will ne n number of components which are intracting to each other its very had to manage the request flow.
->Spring Sleuth use to provide the mechanism to manage the centeralize tracing id in flow of request. so it can be easly track.
+>Spring Sleuth use to provide the mechanism to manage the centeralize tracing id in flow of request. so it can be easeley track.
 
 >Add Below dependency in pom.xml
+*******************
 <dependency>
 	<groupId>org.springframework.cloud</groupId>
 	<artifactId>spring-cloud-starter-sleuth</artifactId>
 </dependency>
 
 >Add below code to enable the id generation.
+*******************
 //To link centralized tracing id.
 @Bean
 public Sampler defaultSampler() {
@@ -442,6 +444,16 @@ public Sampler defaultSampler() {
 }
 
 >Add the appropriate log in individual modules.
+*******************
 
+>Log O/P sample
+*******************
+2016-06-17 16:12:36.902 INFO [slueth-sample,432943172b958030,432943172b958030,false] 12157 --- [nio-8080-exec-2] com.example.SleuthSampleApplication : calling home 2016-06-17 16:12:36.940 INFO [slueth-sample,432943172b958030,b4d88156bc6a49ec,false] 12157 --- [nio-8080-exec-3] com.example.SleuthSampleApplication : you called home
+[slueth-sample,432943172b958030,b4d88156bc6a49ec,false]
+[application-name,  trace id, span id,  indicate whether the span should be exported to Zipkin]
 
- 
+---------------------------------------------------------------------------------------------------------------------
+----------------------Zipkin------------------------------------------------------------------
+>Spring Finchley.M3 onwards, due to compatability issue with Sleuth, Spring-boot removed zipkin from stack.
+>There is way to use indipendently the same using zipkin executable jar.
+>
