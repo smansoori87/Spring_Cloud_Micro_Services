@@ -1,5 +1,7 @@
 package com.ce.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,8 @@ import com.ce.data.ExchangeRateRepository;
 @RestController
 public class ExchangeRateController {
 
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	ExchangeRateModel cem;
 	
@@ -34,7 +38,7 @@ public class ExchangeRateController {
 		ExchangeRate er = cevr.findByFromAndTo(from, to);
 		er.setPort(Integer.valueOf(env.getProperty("local.server.port")));
 		exc = er;
-
+		logger.info("Exchange  Rate -->{}",er);
 		return exc;
 	}
 }
