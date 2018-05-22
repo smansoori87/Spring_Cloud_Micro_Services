@@ -1,0 +1,2 @@
+>npm -version to check if node is there
+>npm install -g create-react-app to create the react project

@@ -1,0 +1,45 @@
+*********************************************
+				AWS-Adv-ARC
+*********************************************
+Module 1:
+AWS Account Management
+-----------------------
+>AMPRSC
+Availability
+Management
+Performance
+Resilency
+Security
+Cost
+
+>Aws Orgnaisation
+>Orgnaisation>Ou>[Accounts]
+			  Ou>HR
+			  Ou>Test
+> Can apply SCP(service controll policy) to individual OU.
+>Upto 20 accounts can be added under one organigation.
+
+>Special Acconts[holding differnet consol] cant be merged under umberala[Ex, China and Nort America Defence]
+>AWSAlias group account
+>AWSConfig>rules to manage the further down the service from IAM like EC2 instance type OS type and all[it will not ristrict the user but it can notify the admin] moreover its notification service.
+>AWS Catalog and Portfolio[ristrict the user to use specific type of services.]
+>RBAC-->Roll based Access Controll
+>AWS Cross Account Access.
+>Trusting Account-->Resource
+>AWS Tag creation and uses from CLI to create script like auto shutdown or start ec2 bcakups from db...
+>
+
+>to migrate from AD in premises to AWS--> AD should be in VMWARE VM and then using Direct connect/VPN we can do this.
+
+>VPCEndpoint> To faster access with S3 and DynamoDb from Ec2 and other services. instead of going into public net. outside to VPC, visible to from NIC, free of cost.
+>Private Link> its always inside VPC, apply security grp and have controlled access. Charge associate
+
+>Maximum Network Performance on EC2
+>JumboFrame can send upto 9k bytes frame.
+>ECMP
+>Adv VPN feature(NAT-T and UDP 4500)
+>Virtual Interface
+>Route53[Public Zone, Private Zone]
+>DHCP Option Set
+
+
