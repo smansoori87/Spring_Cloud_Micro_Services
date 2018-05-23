@@ -42,5 +42,33 @@ Cost
 >Route53[Public Zone, Private Zone]
 >DHCP Option Set
 >Forwarder
->
+
+
+
+********************************
+>Elastic Beanstalk
+>CloudFormation
+>AWS OPSWORKS
+>CodeDeploy
+>CodePIPELINE
+>Code Connect
+>CodeStar
+>OpsWorks
+
+//Important from Adv Exam Prospective.
+>Elastic Beanstalk
+>CloudFormation
+>AWS OPSWORKS
+
+>MultipartUploader
+>Amazon Drive
+
+>SnowBall hard limit is 90 days max can be avail the device with Client. Post 90 days it wont accept any write operation.
+
+>Storage Gateway
+
+>Scryer: for Predictive Custome Auto Scaling.
+
+>Blue Gree Deployemtn
+>Auto Scaling Group
 
