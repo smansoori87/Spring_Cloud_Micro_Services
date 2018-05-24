@@ -72,3 +72,15 @@ Cost
 >Blue Gree Deployemtn
 >Auto Scaling Group
 
+24May
+************************
+>APSTNDP OSI 7 layers.
+>VPCFlowLogs
+>Shield
+>WAF
+>DDOS
+>Amazon Guard Duty
+>
+
+
+
